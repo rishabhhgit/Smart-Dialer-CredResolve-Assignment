@@ -1,0 +1,28 @@
+{
+  "name": "smartdialer",
+  "version": "1.0.0",
+  "description": "SmartDialer - Predictive and Progressive Dialer System",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node src/index.ts",
+    "start:demo": "ts-node src/index.ts demo",
+    "start:simulate": "ts-node src/index.ts simulate",
+    "start:loadtest": "ts-node src/index.ts loadtest",
+    "start:multiworker": "ts-node src/index.ts multiworker",
+    "start:failures": "ts-node src/index.ts failures",
+    "start:all": "ts-node src/index.ts all",
+    "test": "jest --passWithNoTests"
+  },
+  "keywords": ["dialer", "predictive", "telecom"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@types/node": "^26.4.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.0"
+  }
+}

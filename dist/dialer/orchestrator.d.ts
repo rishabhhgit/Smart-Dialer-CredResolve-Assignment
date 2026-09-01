@@ -1,0 +1,50 @@
+import { EventEmitter } from "events";
+import { AgentManager, Agent } from "../models/agent";
+import { CallManager } from "../models/call";
+import { TelecomProvider } from "../providers/types";
+import { Campaign, DialerMetrics } from "./types";
+export declare class DialerOrchestrator extends EventEmitter {
+    private agentManager;
+    private callManager;
+    private safetyController;
+    private providers;
+    private campaigns;
+    private pacingEngines;
+    private metrics;
+    private pacingIntervals;
+    private eventBuffer;
+    private readonly workerId;
+    constructor(workerId?: string);
+    private setupEventHandlers;
+    registerProvider(provider: TelecomProvider): void;
+    createCampaign(config: {
+        id: string;
+        name: string;
+        borrowerList: string[];
+        mode: "progressive" | "predictive";
+    }): Campaign;
+    addAgent(agentId: string, campaignId: string): Agent;
+    startPacing(campaignId: string, intervalMs?: number): void;
+    stopPacing(campaignId: string): void;
+    private runPacingCycle;
+    private getDialContext;
+    private getSafetyContext;
+    private calculateAnswerRate;
+    private calculateAvgCallDuration;
+    initiateCalls(campaignId: string, count: number): Promise<void>;
+    private selectBorrower;
+    private placeCall;
+    private selectProvider;
+    private handleProviderEvent;
+    private isDuplicateEvent;
+    private mapProviderStatus;
+    private handleCallAnswered;
+    private handleCallCompleted;
+    private handleCallFailed;
+    getMetrics(campaignId: string): DialerMetrics | undefined;
+    getSafetyMetrics(): import("../safety/types").SafetyMetrics;
+    getAgentManager(): AgentManager;
+    getCallManager(): CallManager;
+    shutdown(): Promise<void>;
+}
+//# sourceMappingURL=orchestrator.d.ts.map
