@@ -10,11 +10,6 @@ A call center dialer that connects agents to borrowers efficiently while prevent
 | Node.js | Event-driven, handles many concurrent async calls |
 | Jest | Fast tests, built-in mocking, good TypeScript support |
 
-**Why not Go/Python/Java?**
-- Go: Overkill for prototype, would use at true distributed scale
-- Python: Weaker async story, less type safety
-- Java: Too much boilerplate for 4-6 hour assignment
-
 **Why in-memory?**
 - Prototype simplicity, would use Redis/Postgres at scale
 
